@@ -33,4 +33,23 @@ router.post('/post', function(req, res, next) {
   res.status(200).end();
 });
 
+router.post('/comment', function(req, res, next) {
+  var name = req.body.name;
+  var comment = req.body.comment;
+  var post_id = req.body.post_id;
+  var timestamp = Firebase.ServerValue.TIMESTAMP
+
+  var full_comment = {
+    name: name,
+    comment: comment,
+    timestamp: timestamp
+  };
+
+  var post_ref = myDB.child('posts/' + post_id + "/comments").push(full_comment);
+
+  myDB.child("posts/" + post_id + "/comments").once("value", function(snapshot) {
+    res.status(200).send(snapshot.val());
+  });
+});
+
 module.exports = router;
