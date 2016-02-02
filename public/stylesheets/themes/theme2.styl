@@ -1,0 +1,84 @@
+body {
+  background-color: $palette.backgrounds.body
+}
+
+h2, a {
+  color: $palette.text.header.dark
+  font-family: $fonts.links
+}
+
+header {
+  width: 300px
+  background: $palette.backgrounds.primary
+  float: left
+  position: absolute
+  height: 100%
+  padding: ($padding / 2)
+  h1, a {
+    color: $palette.text.header.light
+  }
+  a:hover {
+    color: $palette.text.header.light
+    text-decoration: none
+  }
+}
+
+#page-wrapper {
+  position: absolute
+  height: 100%
+  left: 325px
+  right: 0
+  padding: ($padding / 2) ($padding / 2) ($padding / 2) 0
+  overflow-y: scroll
+}
+
+#post-list {
+  flex-wrap: wrap
+  .short-post {
+    flex-basis: 100%
+    border-bottom: 1px solid #eee
+    padding: ($padding / 2) 0
+  }
+  .short-post:first-child {
+    padding-top: 0
+  }
+  .short-post:last-child {
+    border-bottom: none
+  }
+}
+
+.long-post, .short-post {
+  small {
+    display: inline-block
+    margin-bottom: ($padding / 4)
+    color: $palette.text.small
+  }
+}
+
+#post-form {
+  width: 100%
+  input {
+    margin-top: ($padding / 4)
+  }
+  a {
+    background-color: $palette.backgrounds.primary
+  }
+}
+
+#new-post {
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translate(-50%, -50%)
+  transition: background-color 0.5s ease
+  background-color: $palette.backgrounds.primary
+  color: $palette.specials.special-button.text
+  padding: ($padding / 8) ($padding / 4)
+  border-radius: 10px
+  border: 2px solid floralwhite
+}
+
+#new-post:hover {
+  color: $palette.backgrounds.primary
+  background-color: $palette.specials.special-button.text
+}

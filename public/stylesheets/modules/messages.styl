@@ -1,0 +1,31 @@
+@keyframes fade {
+  0% {opacity: 0}
+  20% {opacity: 0.85}
+  80% {opacity: 0.85}
+  100% {opacity: 0}
+}
+
+.message {
+  position: fixed
+  top: 0
+  width: 300px
+  padding: 15px
+  opacity: 0
+  color: floralwhite
+  text-align: center
+  border-bottom-left-radius: 10px
+  border-bottom-right-radius: 10px
+  margin: 0
+  left: 50%
+  transform: translate(-50%, 0%)
+  animation-name: fade
+  animation-duration: 1000ms
+}
+
+.success {
+  background-color: forestgreen
+}
+
+.error {
+  background-color: darkred
+}

@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lobster", type="text/css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Francois+One", type="text/css")
+  body
+    include header.jade
+    #page-wrapper
+      block content
+  script(src="javascripts/controller.js")

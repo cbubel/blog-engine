@@ -1,0 +1,10 @@
+Blog structure
+-post
+  -title
+  -content
+  -created-timestamp
+  -edited-timestamp
+  -categories
+  -tags
+  -author
+  

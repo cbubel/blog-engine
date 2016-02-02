@@ -1,0 +1,13 @@
+$clearfix
+    clear: both
+
+cols-n(n)
+  for i in 1..n
+    $col-{i}
+      display: block
+      float: left
+      width unit(($col-size * i), '%')
+      padding: ($padding / 4) ($padding / 2)
+
+for i in 1..12
+  cols-n(i)

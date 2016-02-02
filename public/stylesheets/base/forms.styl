@@ -1,0 +1,28 @@
+form {
+  input, textarea, a {
+    display: block
+    width: 100%
+    margin-bottom: ($padding / 2)
+    border-radius: 10px
+    border: none
+    padding: ($padding / 4) ($padding / 2)
+  }
+  input:focus, textarea:focus, a:focus {
+    outline: none
+  }
+  textarea {
+    height: 200px
+  }
+  input, textarea {
+    border: 1px solid #eee;
+  }
+  a {
+    background-color: $palette.specials.button.background
+    color: $palette.specials.button.text
+    text-align: center
+  }
+  a:hover {
+    color: $palette.specials.button.text
+    text-decoration: none
+  }
+}

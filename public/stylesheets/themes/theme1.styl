@@ -1,0 +1,106 @@
+body {
+  background-color: $palette.backgrounds.body
+}
+
+header .container, #page-wrapper {
+  padding: 0 $padding
+}
+
+h2, a {
+  color: $palette.text.header.dark
+  font-family: $fonts.links
+}
+
+#page-wrapper {
+  width: $width
+  max-width: 100%
+  margin: 0 auto
+}
+
+header {
+  background-color: $palette.backgrounds.primary
+  .container {
+    position: relative
+    max-width: $width
+    margin: 0 auto
+  }
+  h1, a {
+    display: inline
+    color: $palette.text.body.light
+  }
+  a:hover {
+    color: $palette.text.body.light
+    text-decoration: none
+  }
+}
+
+#new-post {
+  position: absolute
+  top: 50%
+  right: 0
+  transform: translate(-($padding), -50%)
+  transition: background-color 0.5s ease
+  background-color: $palette.backgrounds.primary
+  color: $palette.specials.special-button.text
+  padding: ($padding / 8) ($padding / 4)
+  border-radius: 10px
+  border: 2px solid floralwhite
+}
+
+#new-post:hover {
+  color: $palette.backgrounds.primary
+  background-color: $palette.specials.special-button.text
+}
+
+.short-post {
+  border-bottom: 1px solid #eee
+  padding: ($padding / 2) 0
+}
+
+.long-post, #post-form {
+  padding-top: ($padding / 2)
+}
+
+.long-post, .short-post {
+  small {
+    display: inline-block
+    margin-bottom: ($padding / 4)
+    color: $palette.text.small
+  }
+}
+
+// Grid
+#post-list {
+  flex-wrap: wrap
+  .short-post {
+    box-sizing: border-box
+    flex-basis: ((100 - (3*3)) / 4)%
+    margin-right: 3%
+    border: none
+  }
+  .short-post:nth-child(4n) {
+    margin-right: 0
+  }
+}
+
+#post-form {
+  width: 100%;
+  input {
+    margin-top: ($padding / 4)
+  }
+  a {
+    background-color: $palette.backgrounds.primary
+  }
+}
+
+.short-post:last-child {
+  border-bottom: none
+}
+
+@media screen and (max-width: 800px) {
+  .short-post {
+    flex-basis: 100% !important
+    border-bottom: 1px solid #eee !important
+    margin-right: 0 !important
+  }
+}
