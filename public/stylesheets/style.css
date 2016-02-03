@@ -371,73 +371,46 @@ small {
 body {
   background-color: #fffaf0;
 }
+header .container,
+#page-wrapper {
+  padding: 0 50px;
+}
 h2,
 a {
   color: #388e3c;
   font-family: 'Francois One';
 }
+#page-wrapper {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
 header {
-  width: 300px;
-  background: #008000;
-  float: left;
-  position: absolute;
-  height: 100%;
-  padding: 25px;
+  background-color: #008000;
+}
+header .container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 header h1,
 header a {
+  display: inline;
   color: #fffaf0;
 }
 header a:hover {
   color: #fffaf0;
   text-decoration: none;
 }
-#page-wrapper {
-  position: absolute;
-  height: 100%;
-  left: 325px;
-  right: 0;
-  padding: 25px 25px 25px 0;
-  overflow-y: scroll;
-}
-#post-list {
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  -o-box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-#post-list .short-post {
-  -webkit-flex-basis: 100%;
-  flex-basis: 100%;
-  border-bottom: 1px solid #eee;
-  padding: 25px 0;
-}
-#post-list .short-post:first-child {
-  padding-top: 0;
-}
-#post-list .short-post:last-child {
-  border-bottom: none;
-}
-#post-form {
-  width: 100%;
-}
-#post-form input {
-  margin-top: 12.5px;
-}
-#post-form a {
-  background-color: #008000;
-}
 #new-post {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(-50px, -50%);
+  -moz-transform: translate(-50px, -50%);
+  -o-transform: translate(-50px, -50%);
+  -ms-transform: translate(-50px, -50%);
+  transform: translate(-50px, -50%);
   -webkit-transition: background-color 0.5s ease;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
@@ -453,4 +426,52 @@ header a:hover {
 #new-post:hover {
   color: #008000;
   background-color: #fffaf0;
+}
+.short-post {
+  border-bottom: 1px solid #eee;
+  padding: 25px 0;
+}
+.long-post,
+#post-form {
+  padding-top: 25px;
+}
+#post-list {
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+#post-list .short-post {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-flex-basis: 22.75%;
+  flex-basis: 22.75%;
+  margin-right: 3%;
+  border: none;
+}
+#post-list .short-post:nth-child(4n) {
+  margin-right: 0;
+}
+#post-form {
+  width: 100%;
+}
+#post-form input {
+  margin-top: 12.5px;
+}
+#post-form a {
+  background-color: #008000;
+}
+.short-post:last-child {
+  border-bottom: none;
+}
+@media screen and (max-width: 800px) {
+  .short-post {
+    -webkit-flex-basis: 100% !important;
+    flex-basis: 100% !important;
+    border-bottom: 1px solid #eee !important;
+    margin-right: 0 !important;
+  }
 }

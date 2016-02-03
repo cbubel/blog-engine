@@ -105,7 +105,7 @@ var getPosts = function(callback) {
         if(res.hasOwnProperty(key)) {
           posts[key] = res[key];
           buildShortPost(key, res[key]);
-          buildLongPost(key, res[key]);
+          // buildLongPost(key, res[key]);
 
           initial_state = document.body;
         }
@@ -179,10 +179,11 @@ var buildShortPost = function(key, post) {
   container.insertBefore(div, container.firstChild);
 }
 
-var buildLongPost = function(key, post) {
+var buildLongPost = function(key) {
   var div = document.createElement("div");
   var header = document.createElement("h2");
   var time = document.createElement("small");
+  var post = posts[key];
 
   header.innerHTML = post.title;
   time.innerHTML = buildTime(post.timestamp);
@@ -215,28 +216,33 @@ var showDivs = function(arrObs) {
   });
 }
 
+var destroyPostView = function() {
+  document.querySelector("#full-posts").removeChild(document.querySelector(current_post));
+  current_post = undefined;
+}
+
 var handleHash = function() {
   if(location.hash === "") {
     showDivs([{id: "#post-list", show_type: "flex"}, {id: "#new-post", show_type: "inline-block"}]);
     hideDivs(["#post-form", "#comment-form", "#comments"]);
     if(current_post !== undefined) {
-      hideDivs([current_post]);
-      current_post = undefined;
+      destroyPostView();
     }
   }
   else if(location.hash === "#new-post") {
     showDivs([{id: "#post-form", show_type: "inline-block"}]);
     hideDivs(["#new-post", "#post-list", "#comment-form", "#comments"]);
     if(current_post !== undefined) {
-      hideDivs([current_post]);
-      current_post = undefined;
+      destroyPostView();
     }
   }
-  else {
+  else { // Selected post
     if(current_post !== undefined) {
-      hideDivs([current_post]);
+      destroyPostView();
     }
     current_post = location.hash;
+    var post_id = current_post.slice(1, current_post.length)
+    buildLongPost(post_id);
     showDivs([
       {id: current_post, show_type: "inline-block"},
       {id: "#comment-form", show_type: "inline-block"},
@@ -244,7 +250,8 @@ var handleHash = function() {
       {id: "#new-post", show_type: "inline-block"}
     ]);
     hideDivs(["#post-list", "#post-form"]);
-    loadComments(current_post.slice(1, current_post.length));
+    loadComments(post_id);
+    document.querySelector("#page-wrapper").scrollTop = 0
   }
 }
 
