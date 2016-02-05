@@ -259,6 +259,7 @@ var init = function() {
   document.querySelector("#post-form").style.display = "none";
   document.querySelector("#submit").addEventListener("click", newPost);
   document.querySelector("#submit-comment").addEventListener("click", newComment);
+  document.querySelector("#comment-form").style.display = "none";
   window.addEventListener("hashchange", handleHash);
   window.addEventListener("load", function() {
     getPosts(function() {
